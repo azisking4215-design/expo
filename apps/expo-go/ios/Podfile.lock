@@ -152,7 +152,7 @@ PODS:
     - ReactCommon/turbomodule/core
     - SocketRocket
     - Yoga
-  - ExpoAgeRange (0.1.0):
+  - ExpoAgeRange (0.2.0):
     - ExpoModulesCore
   - ExpoAppleAuthentication (8.0.7):
     - ExpoModulesCore
@@ -4580,7 +4580,7 @@ SPEC CHECKSUMS:
   Expo: 446942b564f6fa3f855457d1f1678a9d5c5f3741
   expo-dev-menu: ae1feaf51f47590afc4527c6a75165beb7aed0dd
   expo-dev-menu-interface: 30d9aa2fbca275a1335ca7e076273dac1d42d40a
-  ExpoAgeRange: 5203a372b2f4ef4e5510acf025373d52de60f8df
+  ExpoAgeRange: 294504c50f493b0b5da2107fd47126486164ec09
   ExpoAppleAuthentication: 414e4316f8e25a2afbc3943cf725579c910f24b8
   ExpoAsset: 4375a46b45b12bbfcf6efac8c8a33aebdb8ba12b
   ExpoAudio: 80c3cce8e252081c24837ef4c7bedda78f3ce8de
