@@ -15,10 +15,15 @@ import { LinkAppleZoom } from './zoom/link-apple-zoom';
 export interface LinkMenuActionProps {
   /**
    * The title of the menu item.
+   * @deprecated Use `children` prop instead.
    */
-  title: string;
+  title?: string;
   /**
-   * Optional SF Symbol displayed alongside the menu item.
+   * The title of the menu item.
+   */
+  children?: string;
+  /**
+   * SF Symbol displayed alongside the menu item.
    */
   icon?: SFSymbol;
   /**
@@ -62,10 +67,11 @@ export function LinkMenuAction(props: LinkMenuActionProps) {
   if (useIsPreview() || process.env.EXPO_OS !== 'ios' || !use(InternalLinkPreviewContext)) {
     return null;
   }
-  const { unstable_keepPresented, onPress, ...rest } = props;
+  const { unstable_keepPresented, onPress, children, title, ...rest } = props;
   return (
     <NativeLinkPreviewAction
       {...rest}
+      title={children ?? title ?? ''}
       onSelected={onPress}
       keepPresented={unstable_keepPresented}
       identifier={identifier}
@@ -81,7 +87,7 @@ export interface LinkMenuProps {
   /**
    * Optional SF Symbol displayed alongside the menu item.
    */
-  icon?: string;
+  icon?: SFSymbol;
   /**
    * If `true`, the menu will be displayed as a palette.
    * This means that the menu will be displayed as one row

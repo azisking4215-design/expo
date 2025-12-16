@@ -1,7 +1,7 @@
 import { StackHeaderBackButton, type StackHeaderBackButtonProps } from './StackHeaderBackButton';
 import { StackHeaderButton, type StackHeaderButtonProps } from './StackHeaderButton';
 import { StackHeaderComponent, type StackHeaderProps } from './StackHeaderComponent';
-import { StackHeaderItem, type StackHeaderItemProps } from './StackHeaderItem';
+import { StackHeaderView, type StackHeaderViewProps } from './StackHeaderView';
 import { StackHeaderLeft, type StackHeaderLeftProps, StackHeaderRight, type StackHeaderRightProps } from './StackHeaderLeftRight';
 import { StackHeaderMenu, StackHeaderMenuAction, type StackHeaderMenuActionProps, type StackHeaderMenuProps } from './StackHeaderMenu';
 import { StackHeaderSearchBar, type StackHeaderSearchBarProps } from './StackHeaderSearchBar';
@@ -21,9 +21,9 @@ export declare const StackHeader: typeof StackHeaderComponent & {
     Icon: import("react").FC<StackHeaderIconProps>;
     Menu: import("react").FC<StackHeaderMenuProps>;
     MenuAction: import("react").FC<StackHeaderMenuActionProps>;
-    Item: import("react").FC<StackHeaderItemProps>;
+    View: import("react").FC<StackHeaderViewProps>;
     Spacer: import("react").FC<StackHeaderSpacerProps>;
 };
-export { StackHeaderBackButton, type StackHeaderBackButtonProps, type StackHeaderProps, StackHeaderLeft, type StackHeaderLeftProps, StackHeaderRight, type StackHeaderRightProps, StackHeaderSearchBar, type StackHeaderSearchBarProps, StackHeaderTitle, type StackHeaderTitleProps, StackHeaderButton, type StackHeaderButtonProps, StackHeaderBadge, type StackHeaderBadgeProps, StackHeaderLabel, type StackHeaderLabelProps, StackHeaderIcon, type StackHeaderIconProps, StackHeaderMenu, type StackHeaderMenuProps, StackHeaderMenuAction, type StackHeaderMenuActionProps, StackHeaderItem, type StackHeaderItemProps, StackHeaderSpacer, type StackHeaderSpacerProps, type StackHeaderItemSharedProps, };
+export { StackHeaderBackButton, type StackHeaderBackButtonProps, type StackHeaderProps, StackHeaderLeft, type StackHeaderLeftProps, StackHeaderRight, type StackHeaderRightProps, StackHeaderSearchBar, type StackHeaderSearchBarProps, StackHeaderTitle, type StackHeaderTitleProps, StackHeaderButton, type StackHeaderButtonProps, StackHeaderBadge, type StackHeaderBadgeProps, StackHeaderLabel, type StackHeaderLabelProps, StackHeaderIcon, type StackHeaderIconProps, StackHeaderMenu, type StackHeaderMenuProps, StackHeaderMenuAction, type StackHeaderMenuActionProps, StackHeaderView, type StackHeaderViewProps, StackHeaderSpacer, type StackHeaderSpacerProps, type StackHeaderItemSharedProps, };
 export { StackScreen, appendScreenStackPropsToOptions, type StackScreenProps } from './StackScreen';
 //# sourceMappingURL=index.d.ts.map

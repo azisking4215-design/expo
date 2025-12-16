@@ -59,8 +59,8 @@ function LinkMenuAction(props) {
     if ((0, PreviewRouteContext_1.useIsPreview)() || process.env.EXPO_OS !== 'ios' || !(0, react_1.use)(InternalLinkPreviewContext_1.InternalLinkPreviewContext)) {
         return null;
     }
-    const { unstable_keepPresented, onPress, ...rest } = props;
-    return (<native_1.NativeLinkPreviewAction {...rest} onSelected={onPress} keepPresented={unstable_keepPresented} identifier={identifier}/>);
+    const { unstable_keepPresented, onPress, children, title, ...rest } = props;
+    return (<native_1.NativeLinkPreviewAction {...rest} title={children ?? title ?? ''} onSelected={onPress} keepPresented={unstable_keepPresented} identifier={identifier}/>);
 }
 /**
  * Groups context menu actions for a link.

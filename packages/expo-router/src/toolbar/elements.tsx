@@ -13,25 +13,25 @@ import {
 } from '../link/elements';
 
 /**
- * For available props, see [`LinkMenuProps`](./router/#linkmenuprops).
+ * For remaining props, see [`LinkMenuProps`](./router/#linkmenuprops).
  *
  * @platform ios
  */
 export interface ToolbarMenuProps extends LinkMenuProps {
   /**
-   * Whether the button shares the background with adjacent toolbar items.
+   * Whether to separate the background of this item from other header items.
    *
    * > **Note**: Text buttons cannot share the background.
    *
-   * Only available for root level menus.
+   * This prop reverses the native behavior of `sharesBackground`.
    *
    * @see [Official Apple documentation](https://developer.apple.com/documentation/uikit/uibarbuttonitem/sharesbackground) for more information.
    *
-   * @default true
+   * @default false
    *
    * @platform iOS 26+
    */
-  sharesBackground?: boolean;
+  separateBackground?: boolean;
   /**
    * Whether to hide the shared background when `sharesBackground` is enabled.
    *
@@ -42,12 +42,16 @@ export interface ToolbarMenuProps extends LinkMenuProps {
    * @platform iOS 26+
    */
   hidesSharedBackground?: boolean;
+  /**
+   * Whether the button should be hidden.
+   *
+   * @default false
+   */
+  hidden?: boolean;
 }
 
 /**
  * Adds a context menu for to a toolbar.
- *
- * For available props, see [`LinkMenuProps`](./router/#linkmenuprops).
  *
  * @example
  * ```tsx
@@ -61,7 +65,22 @@ export interface ToolbarMenuProps extends LinkMenuProps {
  *
  * @platform ios
  */
-export const ToolbarMenu = LinkMenu;
+export const ToolbarMenu: React.FC<ToolbarMenuProps> = ({
+  separateBackground,
+  hidesSharedBackground,
+  hidden,
+  ...props
+}) => {
+  return (
+    <LinkMenu
+      {...props}
+      // TODO: Add missing props to LinkMenu to support these features natively
+      // hidesSharedBackground={hidesSharedBackground}
+      // sharesBackground={!separateBackground}
+      // hidden={hidden}
+    />
+  );
+};
 
 export type ToolbarMenuActionProps = LinkMenuActionProps;
 
@@ -205,6 +224,7 @@ export const ToolbarButton = (props: ToolbarButtonProps) => {
   const sf = typeof props.icon === 'string' ? props.icon : undefined;
   return (
     <RouterToolbarItem
+      hidesSharedBackground={props.hidesSharedBackground}
       sharesBackground={!props.separateBackground}
       tintColor={props.tintColor}
       barButtonItemStyle={props.variant === 'done' ? 'prominent' : props.variant}
@@ -212,6 +232,7 @@ export const ToolbarButton = (props: ToolbarButtonProps) => {
       onSelected={props.onPress}
       identifier={id}
       title={String(props.children)}
+      hidden={props.hidden}
       systemImageName={sf}
       // TODO: support this props to align with header items
       // disabled={props.disabled}

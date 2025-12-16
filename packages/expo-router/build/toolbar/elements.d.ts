@@ -2,25 +2,25 @@ import { type ColorValue, type StyleProp, type ViewStyle } from 'react-native';
 import type { SFSymbol } from 'sf-symbols-typescript';
 import { LinkMenuAction, type LinkMenuActionProps, type LinkMenuProps } from '../link/elements';
 /**
- * For available props, see [`LinkMenuProps`](./router/#linkmenuprops).
+ * For remaining props, see [`LinkMenuProps`](./router/#linkmenuprops).
  *
  * @platform ios
  */
 export interface ToolbarMenuProps extends LinkMenuProps {
     /**
-     * Whether the button shares the background with adjacent toolbar items.
+     * Whether to separate the background of this item from other header items.
      *
      * > **Note**: Text buttons cannot share the background.
      *
-     * Only available for root level menus.
+     * This prop reverses the native behavior of `sharesBackground`.
      *
      * @see [Official Apple documentation](https://developer.apple.com/documentation/uikit/uibarbuttonitem/sharesbackground) for more information.
      *
-     * @default true
+     * @default false
      *
      * @platform iOS 26+
      */
-    sharesBackground?: boolean;
+    separateBackground?: boolean;
     /**
      * Whether to hide the shared background when `sharesBackground` is enabled.
      *
@@ -31,11 +31,15 @@ export interface ToolbarMenuProps extends LinkMenuProps {
      * @platform iOS 26+
      */
     hidesSharedBackground?: boolean;
+    /**
+     * Whether the button should be hidden.
+     *
+     * @default false
+     */
+    hidden?: boolean;
 }
 /**
  * Adds a context menu for to a toolbar.
- *
- * For available props, see [`LinkMenuProps`](./router/#linkmenuprops).
  *
  * @example
  * ```tsx
@@ -49,7 +53,7 @@ export interface ToolbarMenuProps extends LinkMenuProps {
  *
  * @platform ios
  */
-export declare const ToolbarMenu: import("react").FC<LinkMenuProps>;
+export declare const ToolbarMenu: React.FC<ToolbarMenuProps>;
 export type ToolbarMenuActionProps = LinkMenuActionProps;
 /**
  * A single action item within a toolbar menu.

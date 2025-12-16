@@ -4,10 +4,15 @@ import type { SFSymbol } from 'sf-symbols-typescript';
 export interface LinkMenuActionProps {
     /**
      * The title of the menu item.
+     * @deprecated Use `children` prop instead.
      */
-    title: string;
+    title?: string;
     /**
-     * Optional SF Symbol displayed alongside the menu item.
+     * The title of the menu item.
+     */
+    children?: string;
+    /**
+     * SF Symbol displayed alongside the menu item.
      */
     icon?: SFSymbol;
     /**
@@ -54,7 +59,7 @@ export interface LinkMenuProps {
     /**
      * Optional SF Symbol displayed alongside the menu item.
      */
-    icon?: string;
+    icon?: SFSymbol;
     /**
      * If `true`, the menu will be displayed as a palette.
      * This means that the menu will be displayed as one row

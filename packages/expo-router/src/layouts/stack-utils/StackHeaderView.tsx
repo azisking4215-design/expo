@@ -1,6 +1,6 @@
 import type { NativeStackHeaderItemCustom } from '@react-navigation/native-stack';
 
-export interface StackHeaderItemProps {
+export interface StackHeaderViewProps {
   /**
    * Can be any React node.
    */
@@ -42,15 +42,15 @@ export interface StackHeaderItemProps {
  *
  * @platform ios
  */
-export const StackHeaderItem: React.FC<StackHeaderItemProps> = () => null;
+export const StackHeaderView: React.FC<StackHeaderViewProps> = () => null;
 
-export function convertStackHeaderItemPropsToRNHeaderItem(
-  props: StackHeaderItemProps
+export function convertStackHeaderViewPropsToRNHeaderItem(
+  props: StackHeaderViewProps
 ): NativeStackHeaderItemCustom {
   const { children, ...rest } = props;
   if (!children) {
     console.warn(
-      'Stack.Header.Item requires a child element to render custom content in the header.'
+      'Stack.Header.View requires a child element to render custom content in the header.'
     );
   }
   return {

@@ -10,8 +10,6 @@ const elements_1 = require("../link/elements");
 /**
  * Adds a context menu for to a toolbar.
  *
- * For available props, see [`LinkMenuProps`](./router/#linkmenuprops).
- *
  * @example
  * ```tsx
  * <Toolbar>
@@ -24,7 +22,10 @@ const elements_1 = require("../link/elements");
  *
  * @platform ios
  */
-exports.ToolbarMenu = elements_1.LinkMenu;
+const ToolbarMenu = ({ separateBackground, hidesSharedBackground, hidden, ...props }) => {
+    return (<elements_1.LinkMenu {...props}/>);
+};
+exports.ToolbarMenu = ToolbarMenu;
 /**
  * A single action item within a toolbar menu.
  *
@@ -61,7 +62,7 @@ exports.ToolbarMenuAction = elements_1.LinkMenuAction;
 const ToolbarButton = (props) => {
     const id = (0, react_1.useMemo)(() => (0, non_secure_1.nanoid)(), []);
     const sf = typeof props.icon === 'string' ? props.icon : undefined;
-    return (<native_1.RouterToolbarItem sharesBackground={!props.separateBackground} tintColor={props.tintColor} barButtonItemStyle={props.variant === 'done' ? 'prominent' : props.variant} selected={props.selected} onSelected={props.onPress} identifier={id} title={String(props.children)} systemImageName={sf}/>);
+    return (<native_1.RouterToolbarItem hidesSharedBackground={props.hidesSharedBackground} sharesBackground={!props.separateBackground} tintColor={props.tintColor} barButtonItemStyle={props.variant === 'done' ? 'prominent' : props.variant} selected={props.selected} onSelected={props.onPress} identifier={id} title={String(props.children)} hidden={props.hidden} systemImageName={sf}/>);
 };
 exports.ToolbarButton = ToolbarButton;
 /**
